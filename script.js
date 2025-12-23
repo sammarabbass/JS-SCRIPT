@@ -1,121 +1,177 @@
-// Primitive types
-let str = "Hello";
-let num = 10;
-let bool = true;
-let nul = null;
-let undef = undefined;
-let big = 12345678901234567890n;
-let sym = Symbol("id");
 
-// Print typeof each
-console.log(typeof str);     // string
-console.log(typeof num);     // number
-console.log(typeof bool);    // boolean
-console.log(typeof nul);     // object (JS bug/legacy behavior)
-console.log(typeof undef);   // undefined
-console.log(typeof big);     // bigint
-console.log(typeof sym);     // symbol
+let num1 = Number(prompt("Enter a number (Positive / Negative / Zero):"));
+
+let result1 =
+  isNaN(num1) ? "Invalid input"
+  : num1 > 0 ? "Positive"
+  : num1 < 0 ? "Negative"
+  : "Zero";
+
+alert(result1);
+console.log(result1);
 
 
-// Non-primitive types
-let obj = { name: "Ali", age: 20 };
-let arr = [1, 2, 3];
+let a = Number(prompt("Enter first number:"));
+let b = Number(prompt("Enter second number:"));
 
-console.log(typeof obj); // object
-console.log(typeof arr); // object
- 
+let result2 =
+  a > b ? "First number is greater"
+  : a < b ? "Second number is greater"
+  : "Both are equal";
 
-// Const array
-const numbers = [1, 2, 3];
-numbers.push(4); // allowed
-console.log(numbers); // [1, 2, 3, 4]
-
-// Const string
-const text = "Hello";
-text[0] = "J";
-console.log(text); // Hello (unchanged)
+alert(result2);
+console.log(result2);
 
 
-const student = {
-  name: "Ali",
-  age: 20
-};
+let numb = prompt("Enter a number (Even / Odd):");
 
-// Change property (allowed)
-student.name = "Sara";
-console.log(student);
+let result3 =
+  isNaN(numb) || numb === "" ? "Invalid input"
+  : Number(numb) % 2 === 0 ? "EVEN"
+  : "ODD";
 
-// Reassign object (NOT allowed)
-// student = { name: "Ahmed", age: 22 }; // ❌ Error
+alert(result3);
+console.log(result3);
 
 
-let greeting = "Hello";
-greeting[0] = "J";
-console.log(greeting); // Hello
+let age = Number(prompt("Enter your age:"));
+
+let result4 =
+  isNaN(age) ? "Invalid input"
+  : age < 13 ? "Child"
+  : age <= 19 ? "Teenager"
+  : age <= 59 ? "Adult"
+  : "Senior Citizen";
+
+alert(result4);
+console.log(result4);
 
 
-console.log("5" == 5);   // true (type conversion)
-console.log("5" === 5);  // false (strict comparison)
-console.log(null == undefined);  // true
+let salary = Number(prompt("Enter salary:"));
 
-let a = 5;
+let bonus =
+  isNaN(salary) ? 0
+  : salary < 50000 ? salary * 0.20
+  : salary <= 100000 ? salary * 0.10
+  : 0;
 
-console.log(++a); // 6 (increment first)
-console.log(a);   // 6
-
-let b = 5;
-console.log(b++); // 5 (use first)
-console.log(b);   // 6
+alert(`Your bonus is: $${bonus.toFixed(2)}`);
+console.log(`Your bonus is: $${bonus.toFixed(2)}`);
 
 
-let price = 100;
-let discount = 20;
+let type = prompt("Customer type (member / non-member):").toLowerCase();
+let amount = Number(prompt("Enter purchase amount:"));
 
-// Discounted price
-let finalPrice = price - discount;
-console.log(finalPrice); // 80
+let discountRate =
+  type === "member"
+    ? amount < 100 ? 0.05
+      : amount <= 500 ? 0.10
+      : 0.20
+    : amount <= 500 ? 0.02
+      : 0.05;
 
-// Add tax
-price += 5;
-console.log(price); // 105
+let discount = amount * discountRate;
+let finalPrice = amount - discount;
 
-
-let name = prompt("Enter your name:");
-alert("Hello, " + name + "!");
-
-let choice = confirm("Do you want to delete this file?");
-
-if (choice) {
-  alert("File deleted");
-} else {
-  alert("File not deleted");
-}
-let ageInput = prompt("Enter your age:");
-let age = Number(ageInput);
-if (isNaN(age)) {
-    alert("Please enter a valid number for age.");
-} else {
-    alert("You are " + age + " years old.");
-}
-    let num1 = Number(prompt("Enter first number:"));
-let num2 = Number(prompt("Enter second number:"));
-let operator = prompt("Choose operation (+, -, *, /)");
-
-let result;
-
-if (operator === "+") {
-  result = num1 + num2;
-} else if (operator === "-") {
-  result = num1 - num2;
-} else if (operator === "*") {
-  result = num1 * num2;
-} else if (operator === "/") {
-  result = num1 / num2;
-} else {
-  alert("Invalid operator");
-}
-
-alert("Result: " + result);
+alert(`Discount: $${discount.toFixed(2)}\nFinal Price: $${finalPrice.toFixed(2)}`);
+console.log(discount, finalPrice);
 
 
-alert("⚠️ Warning: You are about to exit!");
+let user = prompt("Enter rock, paper, or scissors:").toLowerCase();
+let choices = ["rock", "paper", "scissors"];
+let computer = choices[Math.floor(Math.random() * 3)];
+
+let result8 =
+  user === computer ? "It's a tie!"
+  : (user === "rock" && computer === "scissors") ||
+    (user === "scissors" && computer === "paper") ||
+    (user === "paper" && computer === "rock")
+  ? "You win!"
+  : "You lose!";
+
+alert(`You chose: ${user}\nComputer chose: ${computer}\nResult: ${result8}`);
+console.log(result8);
+
+
+let signal = prompt("Enter traffic signal (Red / Yellow / Green):");
+
+let action =
+  signal === "Red" ? "Stop"
+  : signal === "Yellow" ? "Get ready"
+  : signal === "Green" ? "Go"
+  : "Invalid signal";
+
+alert(action);
+console.log(action);
+
+
+let x = Number(prompt("Enter first number:"));
+let y = Number(prompt("Enter second number:"));
+let z = Number(prompt("Enter third number:"));
+
+let largest =
+  x > y ? (x > z ? x : z)
+  : (y > z ? y : z);
+
+alert("Largest number is: " + largest);
+console.log(largest);
+
+
+let year = Number(prompt("Enter year:"));
+
+let result11 =
+  (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
+  ? "Leap Year"
+  : "Not a Leap Year";
+
+alert(result11);
+console.log(result11);
+
+
+let input = prompt("Enter a number:");
+let n = Number(input);
+
+let result12 =
+  isNaN(n) ? "Invalid input"
+  : n > 0 ? "Positive number"
+  : n === 0 ? "Zero"
+  : "Negative number";
+
+alert(result12);
+console.log(result12);
+
+
+let password = prompt("Enter password:");
+
+let strength =
+  password.length < 6 ? "Weak password"
+  : password.length <= 10 ? "Moderate password"
+  : "Strong password";
+
+alert(strength);
+console.log(strength);
+
+
+let nume = Number(prompt("Enter a number:"));
+
+let result14 =
+  nume % 2 === 0 && nume % 3 === 0 ? "Divisible by both"
+  : nume % 2 === 0 ? "Divisible by 2"
+  : nume % 3 === 0 ? "Divisible by 3"
+  : "Not divisible by 2 or 3";
+
+alert(result14);
+console.log(result14);
+
+
+let attendance = Number(prompt("Enter attendance percentage:"));
+let marks = Number(prompt("Enter marks:"));
+
+let result15 =
+  attendance < 75 && marks < 40 ? "Fail due to both"
+  : attendance < 75 ? "Poor attendance"
+  : marks < 40 ? "Fail"
+  : "Pass";
+
+alert(result15);
+console.log(result15);
